@@ -1,0 +1,43 @@
+{
+  "family": "phishshield-task",
+  "networkMode": "awsvpc",
+  "requiresCompatibilities": [
+    "FARGATE"
+  ],
+  "cpu": "256",
+  "memory": "512",
+  "executionRoleArn": "arn:aws:iam::570414589393:role/ecsTaskExecutionRole",
+  "taskRoleArn": "arn:aws:iam::570414589393:role/PhishShieldECSTaskRole",
+  "containerDefinitions": [
+    {
+      "name": "phishshield",
+      "image":"570414589393.dkr.ecr.ap-south-1.amazonaws.com/phishshield:3.0",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 5000,
+          "hostPort": 5000,
+          "protocol": "tcp"
+        }
+      ],
+      "environment": [
+        {
+          "name": "AWS_REGION",
+          "value": "ap-south-1"
+        },
+        {
+          "name": "DYNAMODB_TABLE",
+          "value": "PhishShieldScans"
+        }
+      ],
+      "logConfiguration": {
+        "logDriver": "awslogs",
+        "options": {
+          "awslogs-group": "/ecs/phishshield",
+          "awslogs-region": "ap-south-1",
+          "awslogs-stream-prefix": "ecs"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishShield | Scan History</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="brand-icon">🛡</div>
+
+            <div>
+                <h1>PhishShield</h1>
+                <span>URL Security Analyzer</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="index.html">Scanner</a>
+            <a href="history.html" class="active">Scan History</a>
+        </nav>
+
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+
+            <span class="badge">SECURITY MONITORING</span>
+
+            <h2>Scan History</h2>
+
+            <p>
+                Review previously analyzed URLs and their security
+                risk assessments.
+            </p>
+
+        </section>
+
+
+        <section class="history-card">
+
+            <div class="history-header">
+
+                <div>
+                    <h3>Previous Scans</h3>
+
+                    <p id="scanCount">
+                        Loading scan history...
+                    </p>
+                </div>
+
+                <button
+                    id="refreshButton"
+                    class="refresh-button">
+                    Refresh
+                </button>
+
+            </div>
+
+
+            <div id="loadingMessage" class="status-message">
+                Loading scan history...
+            </div>
+
+
+            <div
+                id="errorMessage"
+                class="error-message">
+            </div>
+
+
+            <div
+                id="emptyMessage"
+                class="status-message hidden">
+                No scans have been recorded yet.
+            </div>
+
+
+            <div
+                id="historyTableContainer"
+                class="table-container hidden">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+                            <th>ID</th>
+                            <th>URL</th>
+                            <th>Domain</th>
+                            <th>Score</th>
+                            <th>Risk Level</th>
+                            <th>Scanned At</th>
+                            <th>Action</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="historyTableBody">
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+
+        <section
+            id="detailsSection"
+            class="details-card hidden">
+
+            <div class="history-header">
+
+                <div>
+                    <span class="result-label">
+                        SCAN DETAILS
+                    </span>
+
+                    <h3 id="detailsUrl">
+                        -
+                    </h3>
+                </div>
+
+                <div
+                    id="detailsRiskLevel"
+                    class="risk-badge">
+                    -
+                </div>
+
+            </div>
+
+
+            <div class="score-grid">
+
+                <div class="score-card">
+
+                    <span>Risk Score</span>
+
+                    <strong id="detailsRiskScore">
+                        0
+                    </strong>
+
+                    <small>/ 100</small>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>Domain</span>
+
+                    <strong id="detailsDomain">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>Protocol</span>
+
+                    <strong id="detailsProtocol">
+                        -
+                    </strong>
+
+                </div>
+
+
+                <div class="info-card">
+
+                    <span>URL Length</span>
+
+                    <strong id="detailsUrlLength">
+                        -
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div class="analysis-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h4>Security Findings</h4>
+                    </div>
+
+                    <div
+                        id="detailsFindings"
+                        class="findings-list">
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h4>URL Analysis</h4>
+                    </div>
+
+                    <div class="details">
+
+                        <div class="detail-row">
+                            <span>IP-based URL</span>
+                            <strong id="detailsIpBased">
+                                -
+                            </strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>HTTPS Used</span>
+                            <strong id="detailsHttps">
+                                -
+                            </strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Port</span>
+                            <strong id="detailsPort">
+                                -
+                            </strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Path</span>
+                            <strong id="detailsPath">
+                                -
+                            </strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            PhishShield &copy; 2026 |
+            Rule-based URL Security Risk Assessment
+        </p>
+
+    </footer>
+
+
+    <script src="js/history.js"></script>
+
+</body>
+</html>

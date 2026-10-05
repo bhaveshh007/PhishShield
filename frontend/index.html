@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PhishShield | URL Security Analyzer</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">🛡</div>
+            <div>
+                <h1>PhishShield</h1>
+                <span>URL Security Analyzer</span>
+            </div>
+        </div>
+
+        <nav>
+            <a href="index.html" class="active">Scanner</a>
+            <a href="history.html">Scan History</a>
+        </nav>
+    </header>
+
+
+    <main class="container">
+
+        <section class="hero">
+            <div class="hero-content">
+                <span class="badge">CYBERSECURITY ANALYSIS PLATFORM</span>
+
+                <h2>Analyze a Website URL</h2>
+
+                <p>
+                    Evaluate observable URL and security characteristics
+                    using an explainable rule-based risk engine.
+                </p>
+            </div>
+        </section>
+
+
+        <section class="scanner-card">
+
+            <div class="section-title">
+                <h3>Website Security Scanner</h3>
+                <p>Enter a complete HTTP or HTTPS URL.</p>
+            </div>
+
+            <div class="scan-form">
+
+                <input
+                    type="text"
+                    id="urlInput"
+                    placeholder="https://example.com/login"
+                    autocomplete="off"
+                >
+
+                <button id="scanButton">
+                    Scan URL
+                </button>
+
+            </div>
+
+            <p id="errorMessage" class="error-message"></p>
+
+        </section>
+
+
+        <section id="resultSection" class="result-section hidden">
+
+            <div class="result-header">
+
+                <div>
+                    <span class="result-label">SECURITY ASSESSMENT</span>
+                    <h3 id="resultUrl">-</h3>
+                </div>
+
+                <div id="riskLevel" class="risk-badge">
+                    LOW
+                </div>
+
+            </div>
+
+
+            <div class="score-grid">
+
+                <div class="score-card">
+                    <span>Risk Score</span>
+                    <strong id="riskScore">0</strong>
+                    <small>/ 100</small>
+                </div>
+
+                <div class="info-card">
+                    <span>Domain</span>
+                    <strong id="domain">-</strong>
+                </div>
+
+                <div class="info-card">
+                    <span>Protocol</span>
+                    <strong id="protocol">-</strong>
+                </div>
+
+                <div class="info-card">
+                    <span>URL Length</span>
+                    <strong id="urlLength">-</strong>
+                </div>
+
+            </div>
+
+
+            <div class="analysis-grid">
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h4>Security Findings</h4>
+                    </div>
+
+                    <div id="findingsList" class="findings-list">
+                    </div>
+
+                </div>
+
+
+                <div class="panel">
+
+                    <div class="panel-header">
+                        <h4>URL Analysis</h4>
+                    </div>
+
+                    <div class="details">
+
+                        <div class="detail-row">
+                            <span>IP-based URL</span>
+                            <strong id="ipBased">-</strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>HTTPS Used</span>
+                            <strong id="httpsUsed">-</strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Port</span>
+                            <strong id="port">-</strong>
+                        </div>
+
+                        <div class="detail-row">
+                            <span>Path</span>
+                            <strong id="path">-</strong>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            PhishShield &copy; 2026 |
+            Rule-based URL Security Risk Assessment
+        </p>
+    </footer>
+
+
+    <script src="js/app.js"></script>
+
+</body>
+</html>
